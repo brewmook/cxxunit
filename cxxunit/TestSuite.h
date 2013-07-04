@@ -70,6 +70,17 @@ public:
             throw e.str();
         }
     }
+    
+    template<typename U, typename V>
+    void equalWithin(U u, V v)
+    {
+        if (std::abs(u - value) >= v)
+        {
+            std::stringstream e;
+            e << "Expected '" << u << "' but was '" << value << "'";
+            throw e.str();
+        }
+    }
 
 private:
     T value;
